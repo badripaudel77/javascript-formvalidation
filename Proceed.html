@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="styleforLogin.css">
+
+<script >
+
+   function validateField()
+   { 
+     var firstName=formDetailsFillUp.fname.value;
+     var lastName=formDetailsFillUp.lname.value;
+     var reqfield=document.getElementById('reqfield');
+     //tagname only for array  
+     if(firstName=="" && lastName==""){
+
+     	        error[0].style.visibility="visible";
+                error[1].style.visibility="visible";
+                reqfield.style.visibility="visible";
+                return false;
+     }
+
+     if (firstName=="") {
+        
+        error[0].style.visibility="visible";
+        reqfield.style.visibility="visible";
+     	return false;
+     }
+     if( lastName==""){
+        error[1].style.visibility="visible";
+       reqfield.style.visibility="visible";
+
+     	return false;
+     }
+     else	{
+     	alert("ok you are welcome");
+     	return true;
+     }
+
+   }
+   function clearValue(){
+   	alert("Are you sure to clear the field?")
+   	
+   }
+
+</script>
+</head>
+<body bgcolor="tomato">
+	<header>
+
+	<h2 align="center">Fill up the form</h2>
+	</header>
+
+	<form align="center" method="POST" action="BasicWebLayout.html" name="formDetailsFillUp">
+
+<div class="input-group">
+
+<label>FirstName </label>&nbsp&nbsp
+	<input type="text" name="fname">&nbsp&nbsp&nbsp&nbsp*
+	<p id="error" style="visibility: hidden; color: red;">Invalid FirstName</p>
+
+</div>
+
+<div class="input-group">
+<label>LastName</label>
+	<input type="text" id="lname" name="lname">&nbsp&nbsp&nbsp&nbsp*
+	<p id="error" style="visibility: hidden; color: red;">Invalid LastName</p>
+	<p id="reqfield" style="visibility: hidden; color: red">* required field</p>
+
+</div>
+
+<div class="input-group"><label>Gender:</label>
+    <input type="radio" name="gender">Male
+	<input type="radio" name="gender">Female
+
+</div>
+
+<div class="input-group">
+	<label>Hobbies:</label>	
+	<input type="checkbox" name="hobbies">Dancing
+	<input type="checkbox" name="hobbies">Singing
+	<input type="checkbox" name="hobbies">Playing
+
+</div>
+<!-- 	<p id="pid" style="visibility: hidden;">This is paragraph</p>
+ -->
+<div class="input-group">
+
+<input class="button" type="submit"  value="submit" onclick="return validateField()">
+
+<input class="button" type="reset" name="reset" value="clear" onclick=" return clearValue();">
+
+
+</div>
+</form>
+</body>
+</html>
